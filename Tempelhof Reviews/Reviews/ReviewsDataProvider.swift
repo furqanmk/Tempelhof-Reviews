@@ -8,6 +8,17 @@
 
 import Foundation
 
+enum FetchError: Error {
+    case invalidUrl
+    case noData
+    case parsingFailed
+}
+
+enum RequestPage {
+    case first
+    case next
+}
+
 final class ReviewsDataProvider {
     
     enum Result {
@@ -15,19 +26,23 @@ final class ReviewsDataProvider {
         case failure(Error)
     }
     
-    enum FetchError: Error {
-        case invalidUrl
-        case noData
-        case parsingFailed
-    }
-    
-    let host = "www.getyourguide.com"
-    let urlComponents = ["berlin-l17", "tempelhof-2-hour-airport-history-tour-berlin-airlift-more-t23776", "reviews.json"]
+    private static let host = "www.getyourguide.com"
+    private static let urlComponents = ["berlin-l17",
+                                        "tempelhof-2-hour-airport-history-tour-berlin-airlift-more-t23776",
+                                        "reviews.json"]
+    private static var currentPage = 0
     
     /// Requests reviews.
     ///
     /// - Parameter onComplete: call back with a list of reviews.
-    func fetchReviews(count: Int, page: Int, onComplete: @escaping (Result)->Void) {
+    static func fetchReviews(for page: RequestPage, onComplete: @escaping (Result)->Void) {
+        
+        switch page {
+        case .first:
+            currentPage = 0
+        case .next:
+            currentPage += 1
+        }
         
         let urlString = (["https://" + host] + urlComponents).joined(separator: "/")
         guard let url = URL(string: urlString) else {
