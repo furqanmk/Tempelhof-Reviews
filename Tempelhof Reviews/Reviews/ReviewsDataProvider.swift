@@ -65,8 +65,6 @@ final class ReviewsDataProvider {
             }
             
             let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            
             // Attempt decoding response.
             guard let reviewRequestResponse = try? decoder.decode(ReviewRequestResponse.self, from: data) else {
                 onComplete(.failure(FetchError.parsingFailed))

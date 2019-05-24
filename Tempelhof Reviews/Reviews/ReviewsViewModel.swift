@@ -8,13 +8,13 @@
 
 import Foundation
 
-protocol ReviewsUIDelegate {
+protocol ReviewsViewUIDelegate {
     func updateLoadingState(isLoading: Bool)
     func updateView()
 }
 
 class ReviewsViewModel {
-    var uiDelegate: ReviewsUIDelegate?
+    var uiDelegate: ReviewsViewUIDelegate?
     var reviews: [Review] = []
     
     /// To inform view model that view will appear.
@@ -43,8 +43,10 @@ class ReviewsViewModel {
                 print("Handle error: \(error)")
             }
             
-            self?.uiDelegate?.updateLoadingState(isLoading: false)
-            self?.uiDelegate?.updateView()
+            DispatchQueue.main.async {
+                self?.uiDelegate?.updateLoadingState(isLoading: false)
+                self?.uiDelegate?.updateView()
+            }
         }
     }
 }
