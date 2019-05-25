@@ -24,6 +24,9 @@
 		D16DA69F229972AB007B8FE9 /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D16DA69C22997100007B8FE9 /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D16DA6A22299781B007B8FE9 /* UIImageView+Letters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16DA6A12299781A007B8FE9 /* UIImageView+Letters.swift */; };
 		D16DA6A6229979C5007B8FE9 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D16DA69C22997100007B8FE9 /* SDWebImage.framework */; };
+		D16DA6AB2299B6FC007B8FE9 /* ReviewDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16DA6A92299B6FC007B8FE9 /* ReviewDetailsViewController.swift */; };
+		D16DA6AC2299B6FC007B8FE9 /* ReviewDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D16DA6AA2299B6FC007B8FE9 /* ReviewDetailsViewController.xib */; };
+		D16DA6AE2299B719007B8FE9 /* ReviewDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16DA6AD2299B719007B8FE9 /* ReviewDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +83,9 @@
 		D16DA699229963C9007B8FE9 /* NSObject+className.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+className.swift"; sourceTree = "<group>"; };
 		D16DA69C22997100007B8FE9 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
 		D16DA6A12299781A007B8FE9 /* UIImageView+Letters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Letters.swift"; sourceTree = "<group>"; };
+		D16DA6A92299B6FC007B8FE9 /* ReviewDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDetailsViewController.swift; sourceTree = "<group>"; };
+		D16DA6AA2299B6FC007B8FE9 /* ReviewDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewDetailsViewController.xib; sourceTree = "<group>"; };
+		D16DA6AD2299B719007B8FE9 /* ReviewDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,11 +170,9 @@
 		D16DA68A229863F6007B8FE9 /* Reviews */ = {
 			isa = PBXGroup;
 			children = (
-				D16DA6912299520A007B8FE9 /* Cell */,
+				D16DA6A72299B6B1007B8FE9 /* Reviews */,
+				D16DA6A82299B6D3007B8FE9 /* ReviewDetails */,
 				D16DA696229953A5007B8FE9 /* ReviewsCoordinator.swift */,
-				D16DA686229863ED007B8FE9 /* ReviewsViewController.swift */,
-				D16DA687229863ED007B8FE9 /* ReviewsViewController.xib */,
-				D16DA68B2298640C007B8FE9 /* ReviewsViewModel.swift */,
 				D16DA68D22986422007B8FE9 /* ReviewsDataProvider.swift */,
 				D16DA68F22986437007B8FE9 /* ReviewModel.swift */,
 			);
@@ -206,6 +210,27 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D16DA6A72299B6B1007B8FE9 /* Reviews */ = {
+			isa = PBXGroup;
+			children = (
+				D16DA6912299520A007B8FE9 /* Cell */,
+				D16DA68B2298640C007B8FE9 /* ReviewsViewModel.swift */,
+				D16DA686229863ED007B8FE9 /* ReviewsViewController.swift */,
+				D16DA687229863ED007B8FE9 /* ReviewsViewController.xib */,
+			);
+			path = Reviews;
+			sourceTree = "<group>";
+		};
+		D16DA6A82299B6D3007B8FE9 /* ReviewDetails */ = {
+			isa = PBXGroup;
+			children = (
+				D16DA6AD2299B719007B8FE9 /* ReviewDetailsViewModel.swift */,
+				D16DA6A92299B6FC007B8FE9 /* ReviewDetailsViewController.swift */,
+				D16DA6AA2299B6FC007B8FE9 /* ReviewDetailsViewController.xib */,
+			);
+			path = ReviewDetails;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +338,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D16DA6AC2299B6FC007B8FE9 /* ReviewDetailsViewController.xib in Resources */,
 				D16DA66322986372007B8FE9 /* LaunchScreen.storyboard in Resources */,
 				D16DA69522995230007B8FE9 /* ReviewCell.xib in Resources */,
 				D16DA66022986372007B8FE9 /* Assets.xcassets in Resources */,
@@ -342,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D16DA6A22299781B007B8FE9 /* UIImageView+Letters.swift in Sources */,
+				D16DA6AB2299B6FC007B8FE9 /* ReviewDetailsViewController.swift in Sources */,
 				D16DA68E22986422007B8FE9 /* ReviewsDataProvider.swift in Sources */,
 				D16DA69422995230007B8FE9 /* ReviewCell.swift in Sources */,
 				D16DA688229863ED007B8FE9 /* ReviewsViewController.swift in Sources */,
@@ -350,6 +377,7 @@
 				D16DA69A229963C9007B8FE9 /* NSObject+className.swift in Sources */,
 				D16DA697229953A5007B8FE9 /* ReviewsCoordinator.swift in Sources */,
 				D16DA69022986437007B8FE9 /* ReviewModel.swift in Sources */,
+				D16DA6AE2299B719007B8FE9 /* ReviewDetailsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
