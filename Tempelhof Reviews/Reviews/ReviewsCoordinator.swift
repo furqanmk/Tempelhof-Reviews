@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReviewsCoordinator {
+final class ReviewsCoordinator {
     
     // - MARK: Properties
     
