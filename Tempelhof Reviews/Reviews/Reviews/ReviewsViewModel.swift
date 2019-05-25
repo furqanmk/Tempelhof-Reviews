@@ -26,10 +26,9 @@ final class ReviewsViewModel {
         self.onReviewSelected = onReviewSelected
     }
     
-    /// To inform view model that view will appear.
+    /// To inform view model that view has loaded.
     /// View model fetches the first page of reviews.
-    func viewWillAppear() {
-        reviews = []
+    func viewDidLoad() {
         fetchReviews(for: .first)
     }
     
@@ -39,10 +38,17 @@ final class ReviewsViewModel {
         fetchReviews(for: .next)
     }
     
+    
+    /// To inform the view model that a review was tapped.
+    /// View model executes call back for review selection from coordinator.
+    ///
+    /// - Parameter row: Index of the review tapped.
+    func didSelectReview(at index: Int) {
+        onReviewSelected(reviews[index])
+    }
+    
     private func fetchReviews(for page: RequestPage) {
-        
         uiDelegate?.updated(state: .fetching)
-        
         ReviewsDataProvider.fetchReviews(for: page) { [weak self] result in
             let state: ReviewViewState
             switch result {

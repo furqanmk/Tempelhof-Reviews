@@ -26,22 +26,17 @@ class ReviewsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.uiDelegate = self
+        viewModel.viewDidLoad()
+        
         // Set the title on the navigation bar
         title = "Tempelhof Reviews"
         // Register ReviewCell nib on the tableView
         tableView.register(UINib(nibName: ReviewCell.className, bundle: nil), forCellReuseIdentifier: ReviewCell.className)
         // Enable automatic height on cells
         tableView.estimatedRowHeight = UITableView.automaticDimension
-        
-        viewModel.uiDelegate = self
     }
-        
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        viewModel.viewWillAppear()
-    }
-
+    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -60,7 +55,12 @@ class ReviewsViewController: UITableViewController {
         return UITableView.automaticDimension
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelectReview(at: indexPath.row)
+    }
+    
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // Detects when user scrolls to the bottom of the table view
         if tableView.contentOffset.y >= (tableView.contentSize.height - tableView.frame.size.height) {
             viewModel.didReachPageEnd()
         }
@@ -72,8 +72,8 @@ extension ReviewsViewController: ReviewsViewUIDelegate {
     func updated(state: ReviewViewState) {
         switch state {
         case .fetching:
-            let indicatorFooter = UIActivityIndicatorView(frame: CGRect(origin: .zero,
-                                                                        size: CGSize(width: tableView.bounds.width, height: 44)))
+            let activityIndicatorFrame = CGRect(origin: .zero, size: CGSize(width: tableView.bounds.width, height: 44))
+            let indicatorFooter = UIActivityIndicatorView(frame: activityIndicatorFrame)
             indicatorFooter.color = .gray
             indicatorFooter.startAnimating()
             tableView.tableFooterView = indicatorFooter
