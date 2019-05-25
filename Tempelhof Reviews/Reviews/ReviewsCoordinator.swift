@@ -36,13 +36,15 @@ final class ReviewsCoordinator {
     // - MARK: Private methods
     
     private func configuredReviewsViewController() -> ReviewsViewController {
-        let viewModel = ReviewsViewModel(onReviewSelected: { [weak self] review in
-            self?.showReviewDetails(for: review)
+        let viewModel = ReviewsViewModel(onReviewSelected: { review in
+            self.showReviewDetails(for: review)
         })
         return ReviewsViewController(with: viewModel)
     }
     
     private func showReviewDetails(for review: Review) {
-        
+        let viewModel = ReviewDetailsViewModel(with: review)
+        let viewController = ReviewDetailsViewController(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
     }
 }
