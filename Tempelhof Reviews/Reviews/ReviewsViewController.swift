@@ -26,9 +26,13 @@ class ReviewsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set the title on the navigation bar
+        title = "Tempelhof Reviews"
+        // Register ReviewCell nib on the tableView
         tableView.register(UINib(nibName: ReviewCell.className, bundle: nil), forCellReuseIdentifier: ReviewCell.className)
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 102
+        // Enable automatic height on cells
+        tableView.estimatedRowHeight = UITableView.automaticDimension
+        
         viewModel.uiDelegate = self
     }
         
