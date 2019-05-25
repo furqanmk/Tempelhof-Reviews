@@ -10,7 +10,11 @@ import Foundation
 
 final class ReviewDetailsViewModel {
     
+    // - MARK: Private properties
+    
     private let review: Review
+    
+    // - MARK: Initializers
     
     /// Initializes view model for ReviewDetailsViewController
     ///
@@ -18,6 +22,8 @@ final class ReviewDetailsViewModel {
     init(with review: Review) {
         self.review = review
     }
+    
+    // - MARK: Public properties
     
     var profileImageUrl: URL? {
         guard
@@ -74,4 +80,5 @@ final class ReviewDetailsViewModel {
     var firstInitial: String {
         return review.firstInitial
     }
+    
 }

@@ -22,6 +22,9 @@ class ReviewCell: UITableViewCell {
         roundifyProfileImageView()
     }
     
+    /// Sets up the UI of the cell using review.
+    ///
+    /// - Parameter review: Instance of `Review` object.
     func setup(with review: Review) {
         titleLabel.text = review.title
         messageLabel.text = review.message
@@ -40,9 +43,11 @@ class ReviewCell: UITableViewCell {
         
     }
     
+    /// Makes the shape of the profile image view circular.
     private func roundifyProfileImageView() {
         let dimension = min(profileImageView.frame.width, profileImageView.frame.height)
         profileImageView.layer.cornerRadius = dimension / 2
         profileImageView.layer.masksToBounds = true
     }
+    
 }

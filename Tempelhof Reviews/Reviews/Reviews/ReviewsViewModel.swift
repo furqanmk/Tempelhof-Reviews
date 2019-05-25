@@ -9,6 +9,9 @@
 import Foundation
 
 protocol ReviewsViewUIDelegate: class {
+    /// To inform the delegate about an updated model state.
+    ///
+    /// - Parameter state: State of the model.
     func updated(state: ReviewViewState)
 }
 
@@ -17,14 +20,23 @@ enum ReviewViewState {
 }
 
 final class ReviewsViewModel {
+    
+    // - MARK: Properties
+    
     var uiDelegate: ReviewsViewUIDelegate?
     var reviews: [Review] = []
-    
     private let onReviewSelected: (Review)->Void
     
+    // - MARK: Initializers
+    
+    /// Initializes view model for ReviewsViewController.
+    ///
+    /// - Parameter onReviewSelected: Call back to be triggered when a review is selected.
     init(onReviewSelected: @escaping (Review)->Void) {
         self.onReviewSelected = onReviewSelected
     }
+    
+    // - MARK: Public methods
     
     /// To inform view model that view has loaded.
     /// View model fetches the first page of reviews.
@@ -38,7 +50,6 @@ final class ReviewsViewModel {
         fetchReviews(for: .next)
     }
     
-    
     /// To inform the view model that a review was tapped.
     /// View model executes call back for review selection from coordinator.
     ///
@@ -47,6 +58,11 @@ final class ReviewsViewModel {
         onReviewSelected(reviews[index])
     }
     
+    // - MARK: Private methods
+    
+    /// Sends request to fetch reviews from the backend.
+    ///
+    /// - Parameter page: Value of RequestPage. Enables pagination.
     private func fetchReviews(for page: RequestPage) {
         uiDelegate?.updated(state: .fetching)
         ReviewsDataProvider.fetchReviews(for: page) { [weak self] result in
@@ -65,4 +81,5 @@ final class ReviewsViewModel {
             }
         }
     }
+    
 }

@@ -11,17 +11,20 @@ import SDWebImage
 
 class ReviewDetailsViewController: UIViewController {
     
-    @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var countryLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var messageLabel: UILabel!
-    @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var travelerTypeLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet private weak var profileImageView: UIImageView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var countryLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var messageLabel: UILabel!
+    @IBOutlet private weak var ratingLabel: UILabel!
+    @IBOutlet private weak var travelerTypeLabel: UILabel!
+    @IBOutlet private weak var dateLabel: UILabel!
     
     private let viewModel: ReviewDetailsViewModel
     
+    /// Initalizes view controller with an instance of view model.
+    ///
+    /// - Parameter viewModel: Instance of ReviewDetailsViewModel.
     init(viewModel: ReviewDetailsViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -39,6 +42,7 @@ class ReviewDetailsViewController: UIViewController {
         setupUI()
     }
 
+    /// Assigns values to UI elements from the view model.
     private func setupUI() {
         nameLabel.text = viewModel.name
         countryLabel.text = viewModel.country
@@ -59,9 +63,11 @@ class ReviewDetailsViewController: UIViewController {
         roundifyProfileImageView()
     }
     
+    /// Makes the shape of the profile image view circular.
     private func roundifyProfileImageView() {
         let dimension = min(profileImageView.frame.width, profileImageView.frame.height)
         profileImageView.layer.cornerRadius = dimension / 2
         profileImageView.layer.masksToBounds = true
     }
+    
 }

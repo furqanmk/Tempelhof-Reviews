@@ -32,7 +32,8 @@ class ReviewsViewController: UITableViewController {
         // Set the title on the navigation bar
         title = "Tempelhof Reviews"
         // Register ReviewCell nib on the tableView
-        tableView.register(UINib(nibName: ReviewCell.className, bundle: nil), forCellReuseIdentifier: ReviewCell.className)
+        tableView.register(UINib(nibName: ReviewCell.className, bundle: nil),
+                           forCellReuseIdentifier: ReviewCell.className)
         // Enable automatic height on cells
         tableView.estimatedRowHeight = UITableView.automaticDimension
     }
@@ -65,6 +66,7 @@ class ReviewsViewController: UITableViewController {
             viewModel.didReachPageEnd()
         }
     }
+    
 }
 
 extension ReviewsViewController: ReviewsViewUIDelegate {
