@@ -26,10 +26,13 @@ final class ReviewsDataProvider {
         case failure(Error)
     }
     
-    private static let host = "www.getyourguide.com"
-    private static let urlComponents = ["berlin-l17",
-                                        "tempelhof-2-hour-airport-history-tour-berlin-airlift-more-t23776",
-                                        "reviews.json"]
+    private static let scheme = "https"
+    private static let host = "getyourguide.com"
+    private static let pathComponents = ["/",
+                                         "berlin-l17",
+                                         "tempelhof-2-hour-airport-history-tour-berlin-airlift-more-t23776",
+                                         "reviews.json"]
+    private static let itemsPerFetch = 15
     private static var currentPage = 0
     
     /// Requests reviews.
@@ -44,8 +47,16 @@ final class ReviewsDataProvider {
             currentPage += 1
         }
         
-        let urlString = (["https://" + host] + urlComponents).joined(separator: "/")
-        guard let url = URL(string: urlString) else {
+        // Construct the url
+        var urlComponents = URLComponents()
+        urlComponents.scheme = scheme
+        urlComponents.host = host
+        urlComponents.path = pathComponents.joined(separator: "/")
+        urlComponents.queryItems = [
+            URLQueryItem(name: "page", value: "\(currentPage)"),
+            URLQueryItem(name: "count", value: "\(itemsPerFetch)")
+        ]
+        guard let url = urlComponents.url else {
             onComplete(.failure(FetchError.invalidUrl))
             return
         }
