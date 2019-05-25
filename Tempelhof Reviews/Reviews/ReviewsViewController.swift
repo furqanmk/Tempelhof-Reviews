@@ -11,6 +11,7 @@ import UIKit
 class ReviewsViewController: UITableViewController {
     
     private let viewModel: ReviewsViewModel
+    private let reviewCellReuseId = "ReviewCell"
     
     init(with viewModel: ReviewsViewModel) {
         self.viewModel = viewModel
@@ -25,6 +26,9 @@ class ReviewsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.register(UINib(nibName: ReviewCell.className, bundle: nil), forCellReuseIdentifier: ReviewCell.className)
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 102
         viewModel.uiDelegate = self
     }
         
@@ -41,12 +45,16 @@ class ReviewsViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        let review = viewModel.reviews[indexPath.row]
-        cell.textLabel?.text = review.author
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ReviewCell.className, for: indexPath) as? ReviewCell else {
+            return UITableViewCell()
+        }
+        cell.setup(with: viewModel.reviews[indexPath.row])
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
 }
 
 extension ReviewsViewController: ReviewsViewUIDelegate {

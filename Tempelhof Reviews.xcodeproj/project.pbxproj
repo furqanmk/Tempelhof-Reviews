@@ -20,6 +20,10 @@
 		D16DA69422995230007B8FE9 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16DA69222995230007B8FE9 /* ReviewCell.swift */; };
 		D16DA69522995230007B8FE9 /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D16DA69322995230007B8FE9 /* ReviewCell.xib */; };
 		D16DA697229953A5007B8FE9 /* ReviewsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16DA696229953A5007B8FE9 /* ReviewsCoordinator.swift */; };
+		D16DA69A229963C9007B8FE9 /* NSObject+className.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16DA699229963C9007B8FE9 /* NSObject+className.swift */; };
+		D16DA69F229972AB007B8FE9 /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D16DA69C22997100007B8FE9 /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D16DA6A22299781B007B8FE9 /* UIImageView+Letters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16DA6A12299781A007B8FE9 /* UIImageView+Letters.swift */; };
+		D16DA6A6229979C5007B8FE9 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D16DA69C22997100007B8FE9 /* SDWebImage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +42,20 @@
 			remoteInfo = "Tempelhof Reviews";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D16DA6A0229972AB007B8FE9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D16DA69F229972AB007B8FE9 /* SDWebImage.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D16DA65522986370007B8FE9 /* Tempelhof Reviews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tempelhof Reviews.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +77,9 @@
 		D16DA69222995230007B8FE9 /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
 		D16DA69322995230007B8FE9 /* ReviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
 		D16DA696229953A5007B8FE9 /* ReviewsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsCoordinator.swift; sourceTree = "<group>"; };
+		D16DA699229963C9007B8FE9 /* NSObject+className.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+className.swift"; sourceTree = "<group>"; };
+		D16DA69C22997100007B8FE9 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
+		D16DA6A12299781A007B8FE9 /* UIImageView+Letters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Letters.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D16DA6A6229979C5007B8FE9 /* SDWebImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +115,7 @@
 				D16DA66C22986372007B8FE9 /* Tempelhof ReviewsTests */,
 				D16DA67722986372007B8FE9 /* Tempelhof ReviewsUITests */,
 				D16DA65622986370007B8FE9 /* Products */,
+				D16DA6A5229979C5007B8FE9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +133,8 @@
 			isa = PBXGroup;
 			children = (
 				D16DA68A229863F6007B8FE9 /* Reviews */,
+				D16DA698229963A3007B8FE9 /* Extensions */,
+				D16DA69B229970F1007B8FE9 /* Frameworks */,
 				D16DA65822986370007B8FE9 /* AppDelegate.swift */,
 				D16DA65F22986372007B8FE9 /* Assets.xcassets */,
 				D16DA66122986372007B8FE9 /* LaunchScreen.storyboard */,
@@ -159,6 +184,30 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		D16DA698229963A3007B8FE9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D16DA699229963C9007B8FE9 /* NSObject+className.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D16DA69B229970F1007B8FE9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D16DA6A12299781A007B8FE9 /* UIImageView+Letters.swift */,
+				D16DA69C22997100007B8FE9 /* SDWebImage.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		D16DA6A5229979C5007B8FE9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -169,6 +218,7 @@
 				D16DA65122986370007B8FE9 /* Sources */,
 				D16DA65222986370007B8FE9 /* Frameworks */,
 				D16DA65322986370007B8FE9 /* Resources */,
+				D16DA6A0229972AB007B8FE9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -291,11 +341,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D16DA6A22299781B007B8FE9 /* UIImageView+Letters.swift in Sources */,
 				D16DA68E22986422007B8FE9 /* ReviewsDataProvider.swift in Sources */,
 				D16DA69422995230007B8FE9 /* ReviewCell.swift in Sources */,
 				D16DA688229863ED007B8FE9 /* ReviewsViewController.swift in Sources */,
 				D16DA68C2298640C007B8FE9 /* ReviewsViewModel.swift in Sources */,
 				D16DA65922986370007B8FE9 /* AppDelegate.swift in Sources */,
+				D16DA69A229963C9007B8FE9 /* NSObject+className.swift in Sources */,
 				D16DA697229953A5007B8FE9 /* ReviewsCoordinator.swift in Sources */,
 				D16DA69022986437007B8FE9 /* ReviewModel.swift in Sources */,
 			);
@@ -465,6 +517,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Tempelhof\\ Reviews/Frameworks",
+					"$(PROJECT_DIR)/Tempelhof\\ Reviews/Frameworks",
+					"$(PROJECT_DIR)/Tempelhof\\ Reviews/Frameworks",
+				);
 				INFOPLIST_FILE = "Tempelhof Reviews/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -482,6 +540,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Tempelhof\\ Reviews/Frameworks",
+					"$(PROJECT_DIR)/Tempelhof\\ Reviews/Frameworks",
+					"$(PROJECT_DIR)/Tempelhof\\ Reviews/Frameworks",
+				);
 				INFOPLIST_FILE = "Tempelhof Reviews/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
