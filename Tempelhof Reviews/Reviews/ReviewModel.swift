@@ -21,7 +21,6 @@ struct Review: Decodable {
     let rating: String
     let title: String?
     let message: String?
-    let author: String
     let date: String
     let travelerType: TravelerType?
     let reviewerName: String
@@ -34,7 +33,6 @@ struct Review: Decodable {
         case rating
         case title
         case message
-        case author
         case date
         case travelerType = "traveler_type"
         case reviewerName
