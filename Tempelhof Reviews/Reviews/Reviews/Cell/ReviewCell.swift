@@ -32,7 +32,7 @@ class ReviewCell: UITableViewCell {
             let imageUrl = URL(string: imageUrlString) {
                 profileImageView.sd_setImage(with: imageUrl)
         } else {
-            profileImageView.setImage(string: review.reviewerName,
+            profileImageView.setImage(string: review.firstInitial,
                                       color: UIColor.random,
                                       circular: true,
                                       textAttributes: nil)

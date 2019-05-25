@@ -27,7 +27,7 @@ struct Review: Decodable {
     let reviewerName: String
     let reviewerCountry: String
     let reviewerProfilePhoto: String?
-    let isAnonymous: Bool
+    let firstInitial: String
     
     private enum CodingKeys: String, CodingKey {
         case reviewId = "review_id"
@@ -40,7 +40,7 @@ struct Review: Decodable {
         case reviewerName
         case reviewerCountry
         case reviewerProfilePhoto
-        case isAnonymous
+        case firstInitial
     }
 }
 
