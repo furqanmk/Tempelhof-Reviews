@@ -17,6 +17,12 @@ class ReviewsViewModel {
     var uiDelegate: ReviewsViewUIDelegate?
     var reviews: [Review] = []
     
+    private let onReviewSelected: (Review)->Void
+    
+    init(onReviewSelected: @escaping (Review)->Void) {
+        self.onReviewSelected = onReviewSelected
+    }
+    
     /// To inform view model that view will appear.
     /// View model fetches the first page of reviews.
     func viewWillAppear() {

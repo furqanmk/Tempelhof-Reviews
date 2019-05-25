@@ -20,8 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     /// Sets `ReviewsViewController` as the root view controller of the app.
     private func setRootViewController() {
+        // Create a navigation controller and start reviews coordinator with it.
+        let navigationController = UINavigationController()
+        let coordinator = ReviewsCoordinator(navigationController: navigationController)
+        navigationController.setViewControllers([coordinator.start()], animated: false)
+        
+        // Set the navigation controller as root of the window.
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = ReviewsViewController()
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
 }
