@@ -55,16 +55,32 @@ class ReviewsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if tableView.contentOffset.y >= (tableView.contentSize.height - tableView.frame.size.height) {
+            viewModel.didReachPageEnd()
+        }
+    }
 }
 
 extension ReviewsViewController: ReviewsViewUIDelegate {
     
-    func updateLoadingState(isLoading: Bool) {
-        
-    }
-    
-    func updateView() {
-        tableView.reloadData()
+    func updated(state: ReviewViewState) {
+        switch state {
+        case .fetching:
+            let indicatorFooter = UIActivityIndicatorView(frame: CGRect(origin: .zero,
+                                                                        size: CGSize(width: tableView.bounds.width, height: 44)))
+            indicatorFooter.color = .gray
+            indicatorFooter.startAnimating()
+            tableView.tableFooterView = indicatorFooter
+        case .fetched:
+            tableView.reloadData()
+            tableView.tableFooterView = nil
+        case .failed(let error):
+            present(UIAlertController(title: nil, message: error.localizedDescription, preferredStyle: .alert),
+                    animated: true)
+            tableView.tableFooterView = nil
+        }
     }
     
 }

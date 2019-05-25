@@ -32,13 +32,19 @@ final class ReviewsDataProvider {
                                          "berlin-l17",
                                          "tempelhof-2-hour-airport-history-tour-berlin-airlift-more-t23776",
                                          "reviews.json"]
-    private static let itemsPerFetch = 15
+    private static let itemsPerFetch = 10
     private static var currentPage = 0
+    private static var isFetching = false
     
     /// Requests reviews.
     ///
     /// - Parameter onComplete: call back with a list of reviews.
     static func fetchReviews(for page: RequestPage, onComplete: @escaping (Result)->Void) {
+        
+        guard !isFetching else {
+            return
+        }
+        isFetching = true
         
         switch page {
         case .first:
@@ -84,6 +90,7 @@ final class ReviewsDataProvider {
             
             // Complete with successful parsing of data.
             onComplete(.sucess(reviewRequestResponse.data))
+            isFetching = false
         }.resume()
     }
 }

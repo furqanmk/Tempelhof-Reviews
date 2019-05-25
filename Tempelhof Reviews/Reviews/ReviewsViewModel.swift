@@ -8,9 +8,12 @@
 
 import Foundation
 
-protocol ReviewsViewUIDelegate {
-    func updateLoadingState(isLoading: Bool)
-    func updateView()
+protocol ReviewsViewUIDelegate: class {
+    func updated(state: ReviewViewState)
+}
+
+enum ReviewViewState {
+    case fetching, fetched, failed(Error)
 }
 
 class ReviewsViewModel {
@@ -38,20 +41,21 @@ class ReviewsViewModel {
     
     private func fetchReviews(for page: RequestPage) {
         
-        uiDelegate?.updateLoadingState(isLoading: true)
+        uiDelegate?.updated(state: .fetching)
         
         ReviewsDataProvider.fetchReviews(for: page) { [weak self] result in
+            let state: ReviewViewState
             switch result {
             case .sucess(let reviews):
+                state = .fetched
                 self?.reviews += reviews
                 
             case .failure(let error):
-                print("Handle error: \(error)")
+                state = .failed(error)
             }
             
             DispatchQueue.main.async {
-                self?.uiDelegate?.updateLoadingState(isLoading: false)
-                self?.uiDelegate?.updateView()
+                self?.uiDelegate?.updated(state: state)
             }
         }
     }
