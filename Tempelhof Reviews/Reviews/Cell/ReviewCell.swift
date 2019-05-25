@@ -7,18 +7,42 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ReviewCell: UITableViewCell {
 
+    @IBOutlet private weak var profileImageView: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var messageLabel: UILabel!
+    @IBOutlet private weak var ratingLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        
+        roundifyProfileImageView()
     }
     
+    func setup(with review: Review) {
+        titleLabel.text = review.title
+        messageLabel.text = review.message
+        ratingLabel.text = review.rating
+        
+        if
+            let imageUrlString = review.reviewerProfilePhoto,
+            let imageUrl = URL(string: imageUrlString) {
+                profileImageView.sd_setImage(with: imageUrl)
+        } else {
+            profileImageView.setImage(string: review.reviewerName,
+                                      color: UIColor.random,
+                                      circular: true,
+                                      textAttributes: nil)
+        }
+        
+    }
+    
+    private func roundifyProfileImageView() {
+        let dimension = min(profileImageView.frame.width, profileImageView.frame.height)
+        profileImageView.layer.cornerRadius = dimension / 2
+        profileImageView.layer.masksToBounds = true
+    }
 }
