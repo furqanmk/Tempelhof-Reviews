@@ -16,7 +16,7 @@ enum ReviewViewState {
     case fetching, fetched, failed(Error)
 }
 
-class ReviewsViewModel {
+final class ReviewsViewModel {
     var uiDelegate: ReviewsViewUIDelegate?
     var reviews: [Review] = []
     
