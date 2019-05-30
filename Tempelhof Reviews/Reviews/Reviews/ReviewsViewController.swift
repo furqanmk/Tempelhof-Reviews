@@ -71,7 +71,7 @@ class ReviewsViewController: UITableViewController {
 
 extension ReviewsViewController: ReviewsViewUIDelegate {
     
-    func updated(state: ReviewViewState) {
+    func updated(state: ClientState) {
         switch state {
         case .fetching:
             let activityIndicatorFrame = CGRect(origin: .zero, size: CGSize(width: tableView.bounds.width, height: 44))
