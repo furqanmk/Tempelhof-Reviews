@@ -19,7 +19,7 @@ enum RequestPage {
     case next
 }
 
-final class ReviewsDataProvider {
+class ReviewsDataProvider {
     
     enum Result {
         case sucess([Review])
@@ -39,7 +39,7 @@ final class ReviewsDataProvider {
     /// Requests reviews.
     ///
     /// - Parameter onComplete: call back with a list of reviews.
-    static func fetchReviews(for page: RequestPage, onComplete: @escaping (Result)->Void) {
+    class func fetchReviews(for page: RequestPage, onComplete: @escaping (Result)->Void) {
         
         guard !isFetching else {
             return
