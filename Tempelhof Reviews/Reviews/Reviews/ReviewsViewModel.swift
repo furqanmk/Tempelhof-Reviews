@@ -12,10 +12,10 @@ protocol ReviewsViewUIDelegate: class {
     /// To inform the delegate about an updated model state.
     ///
     /// - Parameter state: State of the model.
-    func updated(state: ReviewViewState)
+    func updated(state: ClientState)
 }
 
-enum ReviewViewState {
+enum ClientState {
     case fetching, fetched, failed(Error)
 }
 
@@ -25,6 +25,7 @@ final class ReviewsViewModel {
     
     var uiDelegate: ReviewsViewUIDelegate?
     var reviews: [Review] = []
+    private let dataProvider: ReviewsDataProvider.Type
     private let onReviewSelected: (Review)->Void
     
     // - MARK: Initializers
@@ -32,7 +33,9 @@ final class ReviewsViewModel {
     /// Initializes view model for ReviewsViewController.
     ///
     /// - Parameter onReviewSelected: Call back to be triggered when a review is selected.
-    init(onReviewSelected: @escaping (Review)->Void) {
+    init(dataProvider: ReviewsDataProvider.Type = ReviewsDataProvider.self,
+         onReviewSelected: @escaping (Review)->Void) {
+        self.dataProvider = dataProvider
         self.onReviewSelected = onReviewSelected
     }
     
@@ -65,8 +68,8 @@ final class ReviewsViewModel {
     /// - Parameter page: Value of RequestPage. Enables pagination.
     private func fetchReviews(for page: RequestPage) {
         uiDelegate?.updated(state: .fetching)
-        ReviewsDataProvider.fetchReviews(for: page) { [weak self] result in
-            let state: ReviewViewState
+        dataProvider.fetchReviews(for: page) { [weak self] result in
+            let state: ClientState
             switch result {
             case .sucess(let reviews):
                 state = .fetched
