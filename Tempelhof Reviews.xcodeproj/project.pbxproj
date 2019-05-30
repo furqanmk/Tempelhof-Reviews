@@ -10,8 +10,7 @@
 		D16DA65922986370007B8FE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16DA65822986370007B8FE9 /* AppDelegate.swift */; };
 		D16DA66022986372007B8FE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D16DA65F22986372007B8FE9 /* Assets.xcassets */; };
 		D16DA66322986372007B8FE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D16DA66122986372007B8FE9 /* LaunchScreen.storyboard */; };
-		D16DA66E22986372007B8FE9 /* Tempelhof_ReviewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16DA66D22986372007B8FE9 /* Tempelhof_ReviewsTests.swift */; };
-		D16DA67922986372007B8FE9 /* Tempelhof_ReviewsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16DA67822986372007B8FE9 /* Tempelhof_ReviewsUITests.swift */; };
+		D16DA66E22986372007B8FE9 /* ReviewsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16DA66D22986372007B8FE9 /* ReviewsViewModelTests.swift */; };
 		D16DA688229863ED007B8FE9 /* ReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16DA686229863ED007B8FE9 /* ReviewsViewController.swift */; };
 		D16DA689229863ED007B8FE9 /* ReviewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D16DA687229863ED007B8FE9 /* ReviewsViewController.xib */; };
 		D16DA68C2298640C007B8FE9 /* ReviewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16DA68B2298640C007B8FE9 /* ReviewsViewModel.swift */; };
@@ -31,13 +30,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		D16DA66A22986372007B8FE9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D16DA64D22986370007B8FE9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D16DA65422986370007B8FE9;
-			remoteInfo = "Tempelhof Reviews";
-		};
-		D16DA67522986372007B8FE9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D16DA64D22986370007B8FE9 /* Project object */;
 			proxyType = 1;
@@ -67,11 +59,8 @@
 		D16DA66222986372007B8FE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D16DA66422986372007B8FE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D16DA66922986372007B8FE9 /* Tempelhof ReviewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tempelhof ReviewsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D16DA66D22986372007B8FE9 /* Tempelhof_ReviewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tempelhof_ReviewsTests.swift; sourceTree = "<group>"; };
+		D16DA66D22986372007B8FE9 /* ReviewsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsViewModelTests.swift; sourceTree = "<group>"; };
 		D16DA66F22986372007B8FE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D16DA67422986372007B8FE9 /* Tempelhof ReviewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tempelhof ReviewsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D16DA67822986372007B8FE9 /* Tempelhof_ReviewsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tempelhof_ReviewsUITests.swift; sourceTree = "<group>"; };
-		D16DA67A22986372007B8FE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D16DA686229863ED007B8FE9 /* ReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsViewController.swift; sourceTree = "<group>"; };
 		D16DA687229863ED007B8FE9 /* ReviewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewsViewController.xib; sourceTree = "<group>"; };
 		D16DA68B2298640C007B8FE9 /* ReviewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsViewModel.swift; sourceTree = "<group>"; };
@@ -104,13 +93,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D16DA67122986372007B8FE9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -119,7 +101,6 @@
 			children = (
 				D16DA65722986370007B8FE9 /* Tempelhof Reviews */,
 				D16DA66C22986372007B8FE9 /* Tempelhof ReviewsTests */,
-				D16DA67722986372007B8FE9 /* Tempelhof ReviewsUITests */,
 				D16DA65622986370007B8FE9 /* Products */,
 				D16DA6A5229979C5007B8FE9 /* Frameworks */,
 			);
@@ -130,7 +111,6 @@
 			children = (
 				D16DA65522986370007B8FE9 /* Tempelhof Reviews.app */,
 				D16DA66922986372007B8FE9 /* Tempelhof ReviewsTests.xctest */,
-				D16DA67422986372007B8FE9 /* Tempelhof ReviewsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -152,19 +132,10 @@
 		D16DA66C22986372007B8FE9 /* Tempelhof ReviewsTests */ = {
 			isa = PBXGroup;
 			children = (
-				D16DA66D22986372007B8FE9 /* Tempelhof_ReviewsTests.swift */,
+				D16DA66D22986372007B8FE9 /* ReviewsViewModelTests.swift */,
 				D16DA66F22986372007B8FE9 /* Info.plist */,
 			);
 			path = "Tempelhof ReviewsTests";
-			sourceTree = "<group>";
-		};
-		D16DA67722986372007B8FE9 /* Tempelhof ReviewsUITests */ = {
-			isa = PBXGroup;
-			children = (
-				D16DA67822986372007B8FE9 /* Tempelhof_ReviewsUITests.swift */,
-				D16DA67A22986372007B8FE9 /* Info.plist */,
-			);
-			path = "Tempelhof ReviewsUITests";
 			sourceTree = "<group>";
 		};
 		D16DA68A229863F6007B8FE9 /* Reviews */ = {
@@ -272,24 +243,6 @@
 			productReference = D16DA66922986372007B8FE9 /* Tempelhof ReviewsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D16DA67322986372007B8FE9 /* Tempelhof ReviewsUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D16DA68322986372007B8FE9 /* Build configuration list for PBXNativeTarget "Tempelhof ReviewsUITests" */;
-			buildPhases = (
-				D16DA67022986372007B8FE9 /* Sources */,
-				D16DA67122986372007B8FE9 /* Frameworks */,
-				D16DA67222986372007B8FE9 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D16DA67622986372007B8FE9 /* PBXTargetDependency */,
-			);
-			name = "Tempelhof ReviewsUITests";
-			productName = "Tempelhof ReviewsUITests";
-			productReference = D16DA67422986372007B8FE9 /* Tempelhof ReviewsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -304,10 +257,6 @@
 						CreatedOnToolsVersion = 10.2.1;
 					};
 					D16DA66822986372007B8FE9 = {
-						CreatedOnToolsVersion = 10.2.1;
-						TestTargetID = D16DA65422986370007B8FE9;
-					};
-					D16DA67322986372007B8FE9 = {
 						CreatedOnToolsVersion = 10.2.1;
 						TestTargetID = D16DA65422986370007B8FE9;
 					};
@@ -328,7 +277,6 @@
 			targets = (
 				D16DA65422986370007B8FE9 /* Tempelhof Reviews */,
 				D16DA66822986372007B8FE9 /* Tempelhof ReviewsTests */,
-				D16DA67322986372007B8FE9 /* Tempelhof ReviewsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -347,13 +295,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D16DA66722986372007B8FE9 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D16DA67222986372007B8FE9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -385,15 +326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D16DA66E22986372007B8FE9 /* Tempelhof_ReviewsTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D16DA67022986372007B8FE9 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D16DA67922986372007B8FE9 /* Tempelhof_ReviewsUITests.swift in Sources */,
+				D16DA66E22986372007B8FE9 /* ReviewsViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,11 +337,6 @@
 			isa = PBXTargetDependency;
 			target = D16DA65422986370007B8FE9 /* Tempelhof Reviews */;
 			targetProxy = D16DA66A22986372007B8FE9 /* PBXContainerItemProxy */;
-		};
-		D16DA67622986372007B8FE9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D16DA65422986370007B8FE9 /* Tempelhof Reviews */;
-			targetProxy = D16DA67522986372007B8FE9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -626,44 +554,6 @@
 			};
 			name = Release;
 		};
-		D16DA68422986372007B8FE9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Tempelhof ReviewsUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "furqanmk.Tempelhof-ReviewsUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Tempelhof Reviews";
-			};
-			name = Debug;
-		};
-		D16DA68522986372007B8FE9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Tempelhof ReviewsUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "furqanmk.Tempelhof-ReviewsUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Tempelhof Reviews";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -690,15 +580,6 @@
 			buildConfigurations = (
 				D16DA68122986372007B8FE9 /* Debug */,
 				D16DA68222986372007B8FE9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D16DA68322986372007B8FE9 /* Build configuration list for PBXNativeTarget "Tempelhof ReviewsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D16DA68422986372007B8FE9 /* Debug */,
-				D16DA68522986372007B8FE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
